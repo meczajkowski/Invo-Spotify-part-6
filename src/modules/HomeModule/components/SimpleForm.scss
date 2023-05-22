@@ -1,0 +1,36 @@
+.simple-form {
+  max-width: 440px;
+  margin: 40px 64px;
+
+  & &__flex-container {
+    display: flex;
+    gap: 14px;
+  }
+
+  & &__input {
+    // Typography starts
+    font-weight: var(--font-weight-m);
+    font-size: var(--font-size-s);
+    // Typography ends
+
+    display: block;
+    width: 100%;
+    height: 56px;
+    padding: 20px 32px 19px;
+    margin-bottom: 14px;
+    background: transparent;
+    color: var(--color-white-100);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius);
+    transition: border 0.2s;
+
+    &[name='CVV'] {
+      width: 58.22%;
+    }
+    &:focus {
+      //   outline: 1px solid var(--single-label-border-color-hover);
+      outline: none;
+      border: 1px solid var(--border-color);
+    }
+  }
+}

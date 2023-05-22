@@ -1,11 +1,13 @@
 /// Main Styles File
 /// Here we import all the global Styles files we need for our project.
 
-@use "styles/normalize.scss";
-@use "styles/root.scss";
-@use "styles/fonts.scss";
+@use 'styles/normalize.scss';
+@use 'styles/root.scss';
+@use 'styles/fonts.scss';
+@use 'styles/buttons.scss';
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
@@ -33,7 +35,7 @@ img {
 
 a {
   color: var(--on-background-color);
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     color: var(--primary-color);
