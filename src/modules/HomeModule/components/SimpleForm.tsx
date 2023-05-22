@@ -4,6 +4,7 @@ import './SimpleForm.scss';
 export const SimpleForm: React.FC = () => {
   return (
     <form className='simple-form'>
+      <h1 className='simple-form__title'>Add your informations</h1>
       <input
         className='simple-form__input'
         type='text'

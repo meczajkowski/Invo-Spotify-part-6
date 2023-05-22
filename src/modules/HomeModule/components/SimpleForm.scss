@@ -2,6 +2,18 @@
   max-width: 440px;
   margin: 40px 64px;
 
+  & &__title {
+    // Typography starts
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-l);
+    line-height: 40px;
+    letter-spacing: -0.01em;
+    // Typography ends
+
+    max-width: 227px;
+    margin: 0 0 40px;
+  }
+
   & &__flex-container {
     display: flex;
     gap: 14px;
