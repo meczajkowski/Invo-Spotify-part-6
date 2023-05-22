@@ -1,28 +1,15 @@
-import React, { useState } from "react";
-import "./HomePage.scss";
+import React, { useState } from 'react';
+import { SimpleForm } from '../../components/SimpleForm';
+import './HomePage.scss';
 
-interface IProps {
-  msg: string;
-}
+// interface IProps {
+//   msg: string;
+// }
 
-export const HomePage: React.FC<IProps> = ({ msg }) => {
-  const [count, setCount] = useState(0);
-
+export const HomePage: React.FC = () => {
   return (
     <>
-      <h1>{msg}</h1>
-      <div className="card">
-        <p>
-          See the README.md for more information on how to start your challenge.
-        </p>
-        <button
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}
-        >
-          count is {count}
-        </button>
-      </div>
+      <SimpleForm />
     </>
   );
 };
