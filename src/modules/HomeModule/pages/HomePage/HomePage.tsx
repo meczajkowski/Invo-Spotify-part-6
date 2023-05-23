@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { SimpleForm } from '../../components/SimpleForm';
+import { HeroImage } from '../../components/HeroImage/HeroImage';
+import { HomePageContainer } from '../../components/HomePageContainer/HomePageContainer';
+import { SimpleForm } from '../../components/SimpleForm/SimpleForm';
 import './HomePage.scss';
-
-// interface IProps {
-//   msg: string;
-// }
 
 export const HomePage: React.FC = () => {
   return (
-    <>
+    <HomePageContainer>
       <SimpleForm />
-    </>
+      <HeroImage />
+    </HomePageContainer>
   );
 };
