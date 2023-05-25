@@ -1,10 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './HomePageContainer.scss';
 
-interface Props {
-  children: ReactNode;
-}
+import { IContainer } from '../../interfaces/IContainer';
 
-export const HomePageContainer: React.FC<Props> = ({ children }) => {
+export const HomePageContainer: React.FC<IContainer> = ({ children }) => {
   return <div className='home-page__container'>{children}</div>;
 };

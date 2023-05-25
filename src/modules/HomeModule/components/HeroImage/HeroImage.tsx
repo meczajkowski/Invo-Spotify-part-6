@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeroImage.scss';
-import hero from './../../../../assets/images/hero.jpg';
+import hero from './../../../../assets/images/hero2.jpg';
 
 export const HeroImage: React.FC = () => {
   return (
