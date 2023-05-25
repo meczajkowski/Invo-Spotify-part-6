@@ -2,22 +2,34 @@ import React, { useState } from 'react';
 import './SimpleForm.scss';
 import InputMask from 'react-input-mask';
 import { IForm } from '../../interfaces/IForm';
+import { IBasicValidator } from '../../interfaces/IBasicValidator';
 
 export const SimpleForm: React.FC = () => {
   const [form, setForm] = useState<IForm>({
     fullName: {
       value: '',
+      isValid: false,
     },
     cardNumber: {
       value: '',
+      isValid: false,
     },
     expiryDate: {
       value: '',
+      isValid: false,
     },
     CVV: {
       value: '',
+      isValid: false,
     },
   });
+
+  const basicValidator: IBasicValidator = {
+    fullName: (value: string) =>
+      /([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,} )([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,})/.test(
+        String(value)
+      ),
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +40,17 @@ export const SimpleForm: React.FC = () => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    setForm({ ...form, [name]: { ...form[name], value } });
+    console.log(target, value, name);
+
+    const validator = basicValidator[name];
+    console.log(validator, basicValidator);
+    let isValid = true;
+
+    if (validator) {
+      isValid = validator(value);
+    }
+
+    setForm({ ...form, [name]: { ...form[name], value, isValid } });
   };
 
   return (
