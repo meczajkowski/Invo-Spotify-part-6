@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import './SimpleForm.scss';
+import InputMask from 'react-input-mask';
+import { IForm } from '../../interfaces/IForm';
 
 export const SimpleForm: React.FC = () => {
-  interface IForm {
-    [key: string]: {
-      value: string;
-    };
-  }
-
   const [form, setForm] = useState<IForm>({
     fullName: {
       value: '',
@@ -43,28 +39,38 @@ export const SimpleForm: React.FC = () => {
         type='text'
         name='fullName'
         placeholder='Name on card'
+        required
         onChange={handleFormChange}
       />
-      <input
+      <InputMask
+        mask='9999 - 9999 - 9999 - 9999'
+        maskChar=''
         className='simple-form__input'
         type='text'
         name='cardNumber'
         placeholder='Card number'
+        required
         onChange={handleFormChange}
       />
       <div className='simple-form__flex-container'>
-        <input
+        <InputMask
+          mask='99/99'
+          maskChar=''
           className='simple-form__input'
           type='text'
           name='expiryDate'
           placeholder='Expiry date (MM/YY)'
+          required
           onChange={handleFormChange}
         />
-        <input
+        <InputMask
+          mask='999'
+          maskChar=''
           className='simple-form__input'
           type='text'
           name='CVV'
           placeholder='CVV'
+          required
           onChange={handleFormChange}
         />
       </div>
