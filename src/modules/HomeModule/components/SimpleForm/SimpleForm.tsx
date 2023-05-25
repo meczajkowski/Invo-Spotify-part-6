@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import './SimpleForm.scss';
 import InputMask from 'react-input-mask';
 import { IForm } from '../../interfaces/IForm';
@@ -28,6 +28,11 @@ export const SimpleForm: React.FC = () => {
     },
   });
 
+  const isFormValid = useMemo(
+    () => Object.values(form).every(({ isValid }) => isValid),
+    [form]
+  );
+
   const basicValidator: IBasicValidator = {
     fullName: (value: string) =>
       /([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,} )([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,})/.test(
@@ -37,7 +42,9 @@ export const SimpleForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(form);
+    if (isFormValid) {
+      console.log(form);
+    }
   };
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,7 +121,11 @@ export const SimpleForm: React.FC = () => {
           onChange={handleFormChange}
         />
       </div>
-      <button className='simple-form__button' type='submit'>
+      <button
+        className='simple-form__button'
+        type='submit'
+        disabled={!isFormValid}
+      >
         Next step
       </button>
     </form>
