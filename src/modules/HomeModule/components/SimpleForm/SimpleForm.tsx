@@ -9,18 +9,22 @@ export const SimpleForm: React.FC = () => {
     fullName: {
       value: '',
       isValid: false,
+      errorMessage: '',
     },
     cardNumber: {
       value: '',
       isValid: false,
+      errorMessage: '',
     },
     expiryDate: {
       value: '',
       isValid: false,
+      errorMessage: '',
     },
     CVV: {
       value: '',
       isValid: false,
+      errorMessage: '',
     },
   });
 
@@ -28,7 +32,7 @@ export const SimpleForm: React.FC = () => {
     fullName: (value: string) =>
       /([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,} )([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,})/.test(
         String(value)
-      ),
+      ) || 'Full name is incorrect',
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -45,12 +49,21 @@ export const SimpleForm: React.FC = () => {
     const validator = basicValidator[name];
     console.log(validator, basicValidator);
     let isValid = true;
+    let errorMessage = '';
 
     if (validator) {
-      isValid = validator(value);
+      const validatorValue = validator(value);
+
+      if (typeof validatorValue === 'string') {
+        isValid = !validatorValue;
+        errorMessage = validatorValue;
+      }
     }
 
-    setForm({ ...form, [name]: { ...form[name], value, isValid } });
+    setForm({
+      ...form,
+      [name]: { ...form[name], value, isValid, errorMessage },
+    });
   };
 
   return (
@@ -64,6 +77,11 @@ export const SimpleForm: React.FC = () => {
         required
         onChange={handleFormChange}
       />
+      {form['fullName'].errorMessage && (
+        <p className='simple-form__error-message'>
+          {form['fullName'].errorMessage}
+        </p>
+      )}
       <InputMask
         mask='9999 - 9999 - 9999 - 9999'
         maskChar=''
