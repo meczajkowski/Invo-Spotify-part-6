@@ -18,6 +18,15 @@
   & &__flex-container {
     display: flex;
     gap: 14px;
+
+    &--column {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &--column-left {
+      width: 80%;
+    }
   }
 
   & &__input {
@@ -38,9 +47,10 @@
     border-radius: var(--border-radius);
     transition: border 0.2s;
 
-    &[name='CVV'] {
-      width: 58.22%;
+    &:nth-child(1) {
+      margin-bottom: 0;
     }
+
     &:focus {
       //   outline: 1px solid var(--single-label-border-color-hover);
       outline: none;

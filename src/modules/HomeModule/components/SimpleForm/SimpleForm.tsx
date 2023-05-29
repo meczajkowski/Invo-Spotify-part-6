@@ -114,36 +114,40 @@ export const SimpleForm: React.FC = () => {
         </p>
       )}
       <div className='simple-form__flex-container'>
-        <InputMask
-          mask='99/99'
-          // maskChar=''
-          className='simple-form__input'
-          type='text'
-          name='expiryDate'
-          placeholder='Expiry date (MM/YY)'
-          required
-          onChange={handleFormChange}
-        />
-        {form['expiryDate'].errorMessage && (
-          <p className='simple-form__error-message'>
-            {form['expiryDate'].errorMessage}
-          </p>
-        )}
-        <InputMask
-          mask='999'
-          // maskChar=''
-          className='simple-form__input'
-          type='text'
-          name='CVV'
-          placeholder='CVV'
-          required
-          onChange={handleFormChange}
-        />
-        {form['CVV'].errorMessage && (
-          <p className='simple-form__error-message'>
-            {form['CVV'].errorMessage}
-          </p>
-        )}
+        <div className='simple-form__flex-container simple-form__flex-container--column simple-form__flex-container--column-left'>
+          <InputMask
+            mask='99/99'
+            // maskChar=''
+            className='simple-form__input'
+            type='text'
+            name='expiryDate'
+            placeholder='Expiry date (MM/YY)'
+            required
+            onChange={handleFormChange}
+          />
+          {form['expiryDate'].errorMessage && (
+            <p className='simple-form__error-message'>
+              {form['expiryDate'].errorMessage}
+            </p>
+          )}
+        </div>
+        <div className='simple-form__flex-container simple-form__flex-container--column'>
+          <InputMask
+            mask='999'
+            // maskChar=''
+            className='simple-form__input'
+            type='text'
+            name='CVV'
+            placeholder='CVV'
+            required
+            onChange={handleFormChange}
+          />
+          {form['CVV'].errorMessage && (
+            <p className='simple-form__error-message'>
+              {form['CVV'].errorMessage}
+            </p>
+          )}
+        </div>
       </div>
       <button
         className='simple-form__button'
