@@ -35,9 +35,12 @@ export const SimpleForm: React.FC = () => {
 
   const basicValidator: IBasicValidator = {
     fullName: (value: string) =>
-      /([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,} )([A-Za-z0-9żźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,})/.test(
+      /([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,} )([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,})/.test(
         String(value)
       ) || 'Full name is incorrect',
+    cardNumber: (value: string) =>
+      /\b\d{16}\b/.test(String(value.replaceAll(' - ', ''))) ||
+      'Card number is incorrect',
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,6 +63,7 @@ export const SimpleForm: React.FC = () => {
 
     if (validator) {
       const validatorValue = validator(value);
+      console.log(validatorValue);
 
       if (typeof validatorValue === 'string') {
         isValid = !validatorValue;
@@ -99,6 +103,11 @@ export const SimpleForm: React.FC = () => {
         required
         onChange={handleFormChange}
       />
+      {form['cardNumber'].errorMessage && (
+        <p className='simple-form__error-message'>
+          {form['cardNumber'].errorMessage}
+        </p>
+      )}
       <div className='simple-form__flex-container'>
         <InputMask
           mask='99/99'
