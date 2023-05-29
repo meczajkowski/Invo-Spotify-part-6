@@ -44,6 +44,8 @@ export const SimpleForm: React.FC = () => {
     expiryDate: (value: string) =>
       /(0[1-9]|1[0-2])\/([0-9]{2})/.test(String(value)) ||
       'Expiry Date is incorrect',
+    CVV: (value: string) =>
+      /([0-9]{3})/.test(String(value)) || 'CVV is incorrect',
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -98,7 +100,7 @@ export const SimpleForm: React.FC = () => {
       )}
       <InputMask
         mask='9999 - 9999 - 9999 - 9999'
-        maskChar=''
+        // maskChar=''
         className='simple-form__input'
         type='text'
         name='cardNumber'
@@ -114,7 +116,7 @@ export const SimpleForm: React.FC = () => {
       <div className='simple-form__flex-container'>
         <InputMask
           mask='99/99'
-          maskChar=''
+          // maskChar=''
           className='simple-form__input'
           type='text'
           name='expiryDate'
@@ -129,7 +131,7 @@ export const SimpleForm: React.FC = () => {
         )}
         <InputMask
           mask='999'
-          maskChar=''
+          // maskChar=''
           className='simple-form__input'
           type='text'
           name='CVV'
@@ -137,6 +139,11 @@ export const SimpleForm: React.FC = () => {
           required
           onChange={handleFormChange}
         />
+        {form['CVV'].errorMessage && (
+          <p className='simple-form__error-message'>
+            {form['CVV'].errorMessage}
+          </p>
+        )}
       </div>
       <button
         className='simple-form__button'
