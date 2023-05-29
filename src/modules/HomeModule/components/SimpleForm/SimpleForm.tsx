@@ -41,6 +41,9 @@ export const SimpleForm: React.FC = () => {
     cardNumber: (value: string) =>
       /\b\d{16}\b/.test(String(value.replaceAll(' - ', ''))) ||
       'Card number is incorrect',
+    expiryDate: (value: string) =>
+      /(0[1-9]|1[0-2])\/([0-9]{2})/.test(String(value)) ||
+      'Expiry Date is incorrect',
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -119,6 +122,11 @@ export const SimpleForm: React.FC = () => {
           required
           onChange={handleFormChange}
         />
+        {form['expiryDate'].errorMessage && (
+          <p className='simple-form__error-message'>
+            {form['expiryDate'].errorMessage}
+          </p>
+        )}
         <InputMask
           mask='999'
           maskChar=''
