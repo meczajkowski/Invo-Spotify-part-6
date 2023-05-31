@@ -11,6 +11,10 @@ body {
   color: var(--on-background-color);
   background-color: var(--canvas-color);
   overflow-y: hidden;
+
+  @media (max-width: 1023px) {
+    overflow-y: visible;
+  }
 }
 
 .img-container {

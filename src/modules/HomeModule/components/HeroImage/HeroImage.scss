@@ -3,9 +3,42 @@
   overflow: hidden;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 .hero-image {
-  object-position: 10%;
+  object-position: 50%;
+}
+
+@media (max-width: 1023px) {
+  .hero-image-container {
+    max-height: 574px;
+    // width: 834px;
+  }
+
+  .hero-image {
+    object-position: 50% -10px;
+    scale: 1.025;
+  }
+}
+
+@media (max-width: 501px) {
+  .hero-image-container {
+    max-height: 372px;
+  }
+
+  .hero-image {
+    object-position: 49.5% 0px;
+    scale: 1;
+  }
+}
+
+@media (max-width: 357px) {
+  .hero-image-container {
+    max-height: 290px;
+  }
+
+  .hero-image {
+    object-position: 49.5% 0px;
+    scale: 1;
+  }
 }
