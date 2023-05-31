@@ -59,16 +59,13 @@ export const SimpleForm: React.FC = () => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    console.log(target, value, name);
 
     const validator = basicValidator[name];
-    console.log(validator, basicValidator);
     let isValid = true;
     let errorMessage = '';
 
     if (validator) {
       const validatorValue = validator(value);
-      console.log(validatorValue);
 
       if (typeof validatorValue === 'string') {
         isValid = !validatorValue;
