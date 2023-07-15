@@ -97,7 +97,7 @@ export const SimpleForm: React.FC = () => {
       )}
       <InputMask
         mask='9999 - 9999 - 9999 - 9999'
-        // maskChar=''
+        maskChar=''
         className='simple-form__input'
         type='text'
         name='cardNumber'
