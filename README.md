@@ -1,35 +1,57 @@
-# INVO Academy JS Starter with Vite
 
-In order to see this file in preview mode in VS Code, press ```Ctrl + Shift + V```
+# Spotify Payment Form
 
-## Recommended IDE Setup
+## Demo
+See the project live here:
+https://mc-spotify-part6.netlify.app/
+## Tech Stack
 
-- [VS Code](https://code.visualstudio.com/)
+- React,
+- TypeScript, 
+- SCSS, 
+- Vite
 
-## How to start your challenge
 
-This is a Universal Starter for all the Advanced INVO Academy Challenges with React. In order to start your challenge, remove all the content inside ```App.tsx``` and start coding :) 
+## Screenshots
 
-The main file structure is prepered, please make yourslef familiar with it. Your goal is to explore it and extend on your own while development. Feel free to remove all the extra files and code that you don't need.
+![App Screenshot](https://github.com/meczajkowski/Invo-Spotify-part-6/assets/110562040/1b77f796-1d71-4255-9695-3572e86e547d)
 
-## How to run your project
 
-If you run your this project for the first time, you need to install npm dependencies by typing
+## Run Locally
 
-```npm install``` (this is for the one-time installation only)
+Clone the project
 
-In order to run your project in a development mode type
+```bash
+  git clone https://github.com/meczajkowski/Invo-Spotify-part-6.git
+```
 
-```npm run dev```
+Go to the project directory
 
-then open your browser and go to the url showed in the terminal. That's it, if you make any changes in the code, browser will synchronize automatically.
+```bash
+  cd Invo-Spotify-part-6
+```
 
-## Building your project
+Install dependencies
 
-When you are ready to put your project on the Internet, you need to build it. For building, type
+```bash
+  npm install
+```
 
-```npm run build```
+Start the server
 
-This commend will create a dist folder. This is the folder containing your whole application and that's the only folder that you need to deploy to the server in order to make your app publically available.
+```bash
+  npm run dev
+```
 
-## More informations about folder structure and deploying your application you can find inside INVO Academy Knowledge Base
+
+## Authors
+
+- [@meczajkowski](https://www.github.com/octokatherine)
+
+
+## Feedback
+
+If you have any feedback, please reach out to me at:
+-  michal.erik.czajkowski@gmail.com,
+- https://www.linkedin.com/in/michalerikczajkowski/
+
